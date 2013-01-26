@@ -34,6 +34,13 @@ int collatz_eval (int i, int j) {
     assert(i > 0);
     assert(j > 0);
     int max = 1;
+	int temp;
+	if(i>j)
+	{
+		temp = i;
+		i = j;
+		j = temp;
+	}
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1;
@@ -41,10 +48,15 @@ int collatz_eval (int i, int j) {
 		while (loca!=1)
 		{
 			if(loca%2 == 1)
+			{
 				loca = loca + (loca>>1) + 1;
+				count += 2;
+			}
 			else
+			{
 				loca = loca/2;
-			count++;
+				count++;
+			}
 		}
 	if (count > max)
 		max = count;
