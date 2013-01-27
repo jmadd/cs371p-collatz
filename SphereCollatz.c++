@@ -77,12 +77,18 @@ void collatz_solve (std::istream&, std::ostream&);
 
 #include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
+#include <string>  //for testing purposes
+#include <stdio.h>
+using namespace std;
 
-#include "Collatz.h"
+
+//#include "Collatz.h"
 
 // ------------
 // collatz_read
 // ------------
+
+	int cache [50];
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -100,6 +106,7 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 int collatz_eval (int i, int j) {
     assert(i > 0);
     assert(j > 0);
+	printf("pooop");
     int max = 1;
 	int temp;
 	if(i>j)
@@ -110,23 +117,32 @@ int collatz_eval (int i, int j) {
 	}
 	for(int a = i; a <= j; a++)
 	{
-		int count = 1;
-		int loca = a;
-		while (loca!=1)
+		int count = 1; 
+		//string q("hello");
+		int loca = a; 		//I am so fiching high right now I just don't even know what to do twith myselfl. I might pass out soon frim all of these crazy drugs Taylor just gave me.
+		//cout << "cache[" << a << "]: " << cache[a] << endl;
+		if(cache[a] != 0)		//use cache if available
+			count = cache[a];
+		else					//otherwise, find cycle length
 		{
-			if(loca%2 == 1)
+			while (loca!=1)
 			{
-				loca = loca + (loca>>1) + 1;
-				count += 2;
+				if(loca%2 == 1)
+				{
+					loca = loca + (loca>>1) + 1;	//odd: (3n+1)/2, 2 steps
+					count += 2;
+				}
+				else
+				{
+					loca = loca/2;					//even: n/2, 1 step
+					count++;
+				}
 			}
-			else
-			{
-				loca = loca/2;
-				count++;
-			}
+			cache[a] = count;
+			
 		}
 	if (count > max)
-		max = count;
+				max = count;
     assert(max > 0);
 	}
 	  return max;
