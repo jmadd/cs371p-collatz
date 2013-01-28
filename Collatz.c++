@@ -21,7 +21,7 @@ using namespace std;
 // collatz_read
 // ------------
 
-	int cache [1000];
+	int cache [1000000];
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -39,7 +39,6 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 int collatz_eval (int i, int j) {
     assert(i > 0);
     assert(j > 0);
-	printf("pooop");
     int max = 1;
 	int temp;
 	if(i>j)
@@ -53,7 +52,7 @@ int collatz_eval (int i, int j) {
 		int count = 1; 
 		//string q("hello");
 		int loca = a; 		//I am so fiching high right now I just don't even know what to do twith myselfl. I might pass out soon frim all of these crazy drugs Taylor just gave me.
-		cout << "cache[" << a << "]: " << cache[a] << endl;
+		//cout << "cache[" << a << "]: " << cache[a] << endl;
 		if(cache[a] != 0)		//use cache if available
 			count = cache[a];
 		else					//otherwise, find cycle length

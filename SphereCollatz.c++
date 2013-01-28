@@ -4,15 +4,15 @@
 // Glenn P. Downing
 // --------------------------
 
-#ifndef Collatz_h
-#define Collatz_h
+//#ifndef Collatz_h
+//#define Collatz_h
 
 // --------
 // includes
 // --------
 
 #include <iostream> // istream, ostream
-
+#include <cassert>  // assert
 // ------------
 // collatz_read
 // ------------
@@ -61,8 +61,7 @@ void collatz_print (std::ostream&, int, int, int);
  */
 void collatz_solve (std::istream&, std::ostream&);
 
-#endif // Collatz_h
-
+//#endif  Collatz_h
 
 
 // ----------------------------
@@ -75,7 +74,7 @@ void collatz_solve (std::istream&, std::ostream&);
 // includes
 // --------
 
-#include <cassert>  // assert
+
 #include <iostream> // endl, istream, ostream
 #include <string>  //for testing purposes
 #include <stdio.h>
@@ -88,7 +87,7 @@ using namespace std;
 // collatz_read
 // ------------
 
-	int cache [50];
+	int cache [1000000];
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -106,7 +105,6 @@ bool collatz_read (std::istream& r, int& i, int& j) {
 int collatz_eval (int i, int j) {
     assert(i > 0);
     assert(j > 0);
-	printf("pooop");
     int max = 1;
 	int temp;
 	if(i>j)
