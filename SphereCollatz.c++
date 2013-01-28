@@ -74,14 +74,14 @@ void collatz_solve (std::istream&, std::ostream&);
 // includes
 // --------
 
-
+#include <cassert>  // assert
 #include <iostream> // endl, istream, ostream
 #include <string>  //for testing purposes
 #include <stdio.h>
 using namespace std;
 
 
-//#include "Collatz.h"
+#include "Collatz.h"
 
 // ------------
 // collatz_read
@@ -113,6 +113,8 @@ int collatz_eval (int i, int j) {
 		i = j;
 		j = temp;
 	}
+	if(i<(j/2))
+		i = j/2+1;
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
@@ -125,6 +127,12 @@ int collatz_eval (int i, int j) {
 		{
 			while (loca!=1)
 			{
+				//cout << "cache[" << loca << "]: " << cache[loca] << endl;
+				/*if(cache[loca] != 0)
+				{
+					count = count + cache[loca] - 1; //subtract 1 b/c count was initialized at 1 twice
+					break;
+				}*/
 				if(loca%2 == 1)
 				{
 					loca = loca + (loca>>1) + 1;	//odd: (3n+1)/2, 2 steps
