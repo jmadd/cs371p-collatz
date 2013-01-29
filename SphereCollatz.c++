@@ -81,7 +81,7 @@ void collatz_solve (std::istream&, std::ostream&);
 using namespace std;
 
 
-#include "Collatz.h"
+//#include "Collatz.h"
 
 // ------------
 // collatz_read
