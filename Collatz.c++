@@ -15,7 +15,7 @@
 using namespace std;
 
 
-#include "Collatz.h"
+//#include "Collatz.h"
 
 // ------------
 // collatz_read
@@ -53,7 +53,7 @@ int collatz_eval (int i, int j) {
 	{
 		int count = 1; 
 		//string q("hello");
-		int loca = a; 		//I am so fiching high right now I just don't even know what to do twith myselfl. I might pass out soon frim all of these crazy drugs Taylor just gave me.
+		int loca = a; 		
 		//cout << "cache[" << a << "]: " << cache[a] << endl;
 		if(cache[a] != 0)		//use cache if available
 			count = cache[a];
@@ -62,11 +62,12 @@ int collatz_eval (int i, int j) {
 			while (loca!=1)
 			{
 				//cout << "cache[" << loca << "]: " << cache[loca] << endl;
-				/*if(cache[loca] != 0)
+				if(loca<1000000)
+				if(cache[loca] != 0)
 				{
 					count = count + cache[loca] - 1; //subtract 1 b/c count was initialized at 1 twice
 					break;
-				}*/
+				}
 				if(loca%2 == 1)
 				{
 					loca = loca + (loca>>1) + 1;	//odd: (3n+1)/2, 2 steps
@@ -79,7 +80,7 @@ int collatz_eval (int i, int j) {
 				}
 			}
 			cache[a] = count;
-			
+
 		}
 	if (count > max)
 				max = count;
