@@ -201,7 +201,7 @@ struct TestCollatz : CppUnit::TestFixture {
 // main
 // ----
 
-int WinMain () {
+int main () {
     using namespace std;
     ios_base::sync_with_stdio(false);  // turn off synchronization with C I/O
     cout << "TestCollatz.c++" << endl;

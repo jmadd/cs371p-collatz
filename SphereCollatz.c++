@@ -118,7 +118,6 @@ int collatz_eval (int i, int j) {
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
-		//string q("hello");
 		int loca = a; 		
 		//cout << "cache[" << a << "]: " << cache[a] << endl;
 		if(cache[a] != 0)		//use cache if available

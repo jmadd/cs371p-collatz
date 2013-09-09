@@ -15,14 +15,13 @@
 using namespace std;
 
 
-//#include "Collatz.h"
+#include "Collatz.h"
 
 // ------------
 // collatz_read
 // ------------
 
 	int cache [1000000];
-	
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -42,7 +41,7 @@ int collatz_eval (int i, int j) {
     assert(j > 0);
     int max = 1;
 	int temp;
-	if(i>j)  			//if first number entered was bigger, switch the order
+	if(i>j)
 	{
 		temp = i;
 		i = j;
@@ -53,21 +52,21 @@ int collatz_eval (int i, int j) {
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
-		int loca = a; 		
+		//string q("hello");
+		int loca = a; 		//I am so fiching high right now I just don't even know what to do twith myselfl. I might pass out soon frim all of these crazy drugs Taylor just gave me.
 		//cout << "cache[" << a << "]: " << cache[a] << endl;
-		if(cache[a] != 0)							//use cache if available
+		if(cache[a] != 0)		//use cache if available
 			count = cache[a];
-		else										//otherwise, find cycle length
+		else					//otherwise, find cycle length
 		{
 			while (loca!=1)
 			{
 				//cout << "cache[" << loca << "]: " << cache[loca] << endl;
-				if(loca<1000000)
-				if(cache[loca] != 0)
+				/*if(cache[loca] != 0)
 				{
 					count = count + cache[loca] - 1; //subtract 1 b/c count was initialized at 1 twice
 					break;
-				}
+				}*/
 				if(loca%2 == 1)
 				{
 					loca = loca + (loca>>1) + 1;	//odd: (3n+1)/2, 2 steps
@@ -80,7 +79,7 @@ int collatz_eval (int i, int j) {
 				}
 			}
 			cache[a] = count;
-
+			
 		}
 	if (count > max)
 				max = count;
