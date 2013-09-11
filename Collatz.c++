@@ -15,13 +15,14 @@
 using namespace std;
 
 
-#include "Collatz.h"
+//#include "Collatz.h"
 
 // ------------
 // collatz_read
 // ------------
 
 	int cache [1000000];
+	
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -41,7 +42,7 @@ int collatz_eval (int i, int j) {
     assert(j > 0);
     int max = 1;
 	int temp;
-	if(i>j)
+	if(i>j)  			//if first number entered was bigger, switch the order
 	{
 		temp = i;
 		i = j;
@@ -52,11 +53,11 @@ int collatz_eval (int i, int j) {
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
-		//string q("hello");
 		int loca = a; 		
-		if(cache[a] != 0)		//use cache if available
+		//cout << "cache[" << a << "]: " << cache[a] << endl;
+		if(cache[a] != 0)							//use cache if available
 			count = cache[a];
-		else					//otherwise, find cycle length
+		else										//otherwise, find cycle length
 		{
 			while (loca!=1)
 			{
@@ -79,7 +80,7 @@ int collatz_eval (int i, int j) {
 				}
 			}
 			cache[a] = count;
-			
+
 		}
 	if (count > max)
 				max = count;
