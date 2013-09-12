@@ -118,13 +118,9 @@ int collatz_eval (int i, int j) {
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
-<<<<<<< HEAD
-		int loca = a; 		
-		//cout << "cache[" << a << "]: " << cache[a] << endl;
-=======
 		//string q("hello");
 		int loca = a; 		
->>>>>>> 78471824a985f424966b78d74825835bcc53fde8
+		//cout << "cache[" << a << "]: " << cache[a] << endl;
 		if(cache[a] != 0)		//use cache if available
 			count = cache[a];
 		else					//otherwise, find cycle length

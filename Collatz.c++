@@ -22,7 +22,7 @@ using namespace std;
 // ------------
 
 	int cache [1000000];
-	
+
 
 bool collatz_read (std::istream& r, int& i, int& j) {
     r >> i;
@@ -53,15 +53,9 @@ int collatz_eval (int i, int j) {
 	for(int a = i; a <= j; a++)
 	{
 		int count = 1; 
-<<<<<<< HEAD
 		int loca = a; 		
 		//cout << "cache[" << a << "]: " << cache[a] << endl;
 		if(cache[a] != 0)							//use cache if available
-=======
-		//string q("hello");
-		int loca = a; 		
-		if(cache[a] != 0)		//use cache if available
->>>>>>> 78471824a985f424966b78d74825835bcc53fde8
 			count = cache[a];
 		else										//otherwise, find cycle length
 		{
